@@ -1,0 +1,24 @@
+<!-- DO NOT REMOVE -->
+<!-- import { Meta } from '@storybook/addon-docs/blocks'; -->
+
+<Meta title="General/Theme/Example" />
+
+# Theme
+
+This brings all the **Company** branding to `Material-UI` components.
+
+Check out more info from Material info [docs](https://material-ui.com/customization/theming/)
+
+### Example
+
+```javascript
+import { ThemeProvider, CssBaseline } from '@material-ui/core';
+import { materialTheme } from '@<company_registry>/tsdx-lib';
+
+const App = () => (
+  <ThemeProvider theme={materialTheme}>
+    <CssBaseline />
+    {/* All the other code and providers for your app */}
+  </ThemeProvider>
+);
+```

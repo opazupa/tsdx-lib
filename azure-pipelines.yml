@@ -1,0 +1,51 @@
+# Build name
+name: "$(Build.SourceBranchName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)"
+
+trigger:
+  - master
+
+pool:
+  vmImage: "ubuntu-latest"
+
+variables:
+  feedName: ""
+  author: "TODO"
+  authorEmail: ""
+
+steps:
+  - script: |
+      git config --global user.email $(authorEmail)
+      git config --global user.name $(author)
+      git remote rm origin
+      git remote add origin "https://x-access-token:$(GITHUBPAGESACCESSTOKEN)@github.com/$(Build.Repository.Name).git"
+    displayName: "Setup git"
+
+  - script: yarn install
+    displayName: "Install dependencies"
+
+  - script: yarn build
+    displayName: "Run build"
+    
+  - script: yarn lint
+    displayName: "Run lint"
+
+  - script: yarn test
+    displayName: "Run tests"
+
+  - script: yarn build-storybook
+    displayName: "Build storybook"
+
+  - script: yarn deploy-storybook
+    condition: and(succeeded(),eq(variables['Build.SourceBranch'], 'refs/heads/master'), ne(variables['Build.Reason'], 'PullRequest'))
+    displayName: "Deploy Storybook documentation"
+
+  - task: Npm@1
+    displayName: "Publish package to the feed"
+    continueOnError: true
+    condition: and(succeeded(),eq(variables['Build.SourceBranch'], 'refs/heads/master'), ne(variables['Build.Reason'], 'PullRequest'))
+    inputs:
+      command: publish
+      publishRegistry: useFeed
+      publishFeed: $(feedName)
+  
+

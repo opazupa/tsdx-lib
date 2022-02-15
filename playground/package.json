@@ -1,0 +1,29 @@
+{
+  "name": "example",
+  "version": "1.0.2",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^3.0.1",
+    "axios": "^0.21.1",
+    "react-app-polyfill": "^1.0.0"
+  },
+  "alias": {
+    "react": "../node_modules/react",
+    "react-dom": "../node_modules/react-dom/profiling",
+    "react-router-dom": "../node_modules/react-router-dom",
+    "scheduler/tracing": "../node_modules/scheduler/tracing-profiling"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.11",
+    "@types/react-dom": "^16.8.4",
+    "@types/react-router-dom": "^5.1.7",
+    "parcel": "1.12.3",
+    "typescript": "^3.4.5"
+  }
+}

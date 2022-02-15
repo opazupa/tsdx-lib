@@ -1,0 +1,29 @@
+<!-- DO NOT REMOVE -->
+<!-- import { Meta } from '@storybook/addon-docs/blocks'; -->
+
+<Meta title="General/Api" />
+
+## API
+
+Wrapper for CRUD methods with axios. Also includes the auth&token request/response interceptors.
+
+### Required env variables:
+
+| Name          | description                    |
+| ------------- | ------------------------------ |
+| REACT_APP_API | API URL to target the requests |
+
+### Example
+
+```javascript
+import { getData, postData } from '@<company_registry>/tsdx-lib';
+
+
+const getResponse = await getData<WorkBook[]>('api/workbooks');
+// { isError: false, data: [workBooks]}
+console.log(getResponse)
+
+const postResponse = await postData<NewWorkBook, WorkBook>('api/workbooks');
+// { isError: false, data: { bookId: 23, name: 'moi}}
+console.log(postResponse)
+```

@@ -1,0 +1,26 @@
+<!-- DO NOT REMOVE -->
+<!-- import { Meta } from '@storybook/addon-docs/blocks'; -->
+
+<Meta title="Docs/Contributing" />
+
+# Contributing 🤝
+
+> Check out the following steps what does it require to be able to contribute!
+
+## New Changes
+
+1. Create new branch for the topic
+2. Test the changes locally with (`storybook` or `playground`)
+   - See more in `Getting Started`
+3. Add a `story` for the new component or update the existing ones.
+4. Add a `test` for the new component or update the existing ones.
+5. Submit the **PR** and prepare to review it.
+
+## New Release
+
+1. Gather all changes for the release
+2. Bump up the version with [`yarn version`](https://classic.yarnpkg.com/en/docs/cli/version/)
+3. Create `git tag` for the version
+4. Push the `tag` to remote
+5. Merge changes to `master` branch
+6. New release is made from `master` branch automatically via CI/CD pipelines

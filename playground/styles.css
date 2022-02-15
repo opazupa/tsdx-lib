@@ -1,0 +1,48 @@
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: aquamarine;
+  justify-content: center;
+}
+
+.blink {
+  padding-bottom: 20px;
+  animation: blinkingText 1.2s infinite;
+}
+
+@keyframes blinkingText {
+  0% {
+    color: #000;
+  }
+  49% {
+    color: #000;
+  }
+  60% {
+    color: transparent;
+  }
+  99% {
+    color: transparent;
+  }
+  100% {
+    color: #000;
+  }
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: Monospace;
+  padding: 0;
+  margin: 0 25px;
+}
+
+footer {
+  bottom: 0;
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  margin-top: auto;
+}
