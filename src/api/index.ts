@@ -31,7 +31,10 @@ export async function getData<T>(endpoint: string): Promise<APIResponse<T>> {
  * @param {T} data
  * @returns response
  */
-export async function postData<T, U>(endpoint: string, data: T): Promise<APIResponse<U>> {
+export async function postData<T, U>(
+  endpoint: string,
+  data: T
+): Promise<APIResponse<U>> {
   return instance
     .post(endpoint, data)
     .then((response: AxiosResponse) => response.data)
@@ -43,7 +46,10 @@ export async function postData<T, U>(endpoint: string, data: T): Promise<APIResp
  * @param {T} data
  * @returns response
  */
-export async function putData<T, U>(endpoint: string, data: T): Promise<APIResponse<U>> {
+export async function putData<T, U>(
+  endpoint: string,
+  data: T
+): Promise<APIResponse<U>> {
   return instance
     .put(endpoint, data)
     .then((response: AxiosResponse) => response.data)
